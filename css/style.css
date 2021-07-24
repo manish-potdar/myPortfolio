@@ -89,12 +89,22 @@ header nav{
 
 .about{
     max-width: 1152px;
-    padding: 15px 15px;
     margin: 3rem auto;
     border: 3px solid var(--primary);
     line-height: 2;
     height: auto;
+    transition: all .9s ease;
 }
+
+.about .left img{
+    width: 350px;
+    border-right: 3px solid var(--primary);
+
+}
+
+.about:hover{
+    box-shadow: 6px 6px 20px grey;
+}   
 
 
 .about h1 span{
@@ -109,7 +119,7 @@ header nav{
 
 .skills{
     padding: 7rem 0;
-    background: var(--dark);
+    background: var(--ternary);
     clip-path: polygon(0 0, 100% 10%, 100% 70%, 0 100%);
 }
 
@@ -140,5 +150,4 @@ header nav{
 
 .skills ul li:hover{
     color: var(--primary);
-    
 }

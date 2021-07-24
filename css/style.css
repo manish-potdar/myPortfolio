@@ -9,7 +9,7 @@
 }
 
 body{
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Comfortaa', sans-serif;
 }
 
 *{
@@ -36,6 +36,7 @@ header nav  a{
     margin-right: 2rem;
     text-transform: uppercase;
     transition: all .3s ease;
+    font-weight: 700;
 }
 
 header nav  a:hover{
@@ -81,6 +82,7 @@ header nav{
     margin-bottom: 2rem;
 }
 
+
 .hero .right{
     margin-top: -7rem;
 }
@@ -102,12 +104,22 @@ header nav{
 .about p{
     line-height: 1.5;
     margin-bottom: 2rem;
+    font-weight: 500;
 }
 
 .skills{
     padding: 7rem 0;
     background: var(--dark);
     clip-path: polygon(0 0, 100% 10%, 100% 70%, 0 100%);
+}
+
+.skills .skills-heading{
+    color: var(--pure);
+    margin-bottom: 3rem;
+    
+}
+.skills .skills-heading span{
+    color: var(--primary);
 }
 
 .skills img{
@@ -123,6 +135,7 @@ header nav{
     margin-right: 2rem;
     transition: all .3s ease;
     margin-bottom: 2rem;
+    font-weight: 700;
 }
 
 .skills ul li:hover{

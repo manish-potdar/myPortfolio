@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -32,8 +32,7 @@
                 </div>
                 <div class="right flex-1">
                     <h6>Manish Potdar</h6>
-                    <h1>I'm a Passinate <span>Programmer</span></h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum nobis eos atque cum magni sint ad mollitia error non provident ducimus velit, facilis perferendis alias amet repudiandae suscipit at cupiditate?</p>
+                    <h1>I'm a Passinate <br><span id="text"></span></h1>
                     <div>
                         <button class="btn btn-secondary">DOWNLOAD CV</button>
                     </div>
@@ -46,17 +45,17 @@
     <section class="about" id="about">
         <div class="container">
             <h1>About <span>Me</span></h1>
-            <h3>Hello I'm Manish Potdar</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Voluptatibus, nobis assumenda consequatur minus aut neque 
-                veniam adipisci eaque ducimus non quidem laudantium voluptatum 
-                ipsum quis error facilis, ratione dignissimos sapiente!</p>
+            <h3>Hello I'm Manish Potdar,</h3>
+            <p></p>
             
         </div>
 
     </section>
 
     <section class="skills" id="skills">
+        <div class="skills-heading container">
+            <h1><span>Familiar</span> Technologies</h1>
+        </div>
         <div class="container flex items-center">
             <div class="left">
                     <ul>
@@ -81,5 +80,66 @@
 
 
 
+
+    <script type="text/javascript">
+
+        // List of sentences
+        var _CONTENT = ["Software Engineer.", "Programmer.", "WebDeveloper.", "Problem Solver." ];
+        
+        // Current sentence being processed
+        var _PART = 0;
+        
+        // Character number of the current sentence being processed 
+        var _PART_INDEX = 0;
+        
+        // Holds the handle returned from setInterval
+        var _INTERVAL_VAL;
+        
+        // Element that holds the text
+        var _ELEMENT = document.querySelector("#text");
+        
+        // Implements typing effect
+        function Type() { 
+            var text =  _CONTENT[_PART].substring(0, _PART_INDEX + 1);
+            _ELEMENT.innerHTML = text;
+            _PART_INDEX++;
+        
+            // If full sentence has been displayed then start to delete the sentence after some time
+            if(text === _CONTENT[_PART]) {
+                clearInterval(_INTERVAL_VAL);
+                setTimeout(function() {
+                    _INTERVAL_VAL = setInterval(Delete, 150);
+                }, 3000);
+            }
+        }
+        
+        // Implements deleting effect
+        function Delete() {
+            var text =  _CONTENT[_PART].substring(0, _PART_INDEX - 1);
+            _ELEMENT.innerHTML = text;
+            _PART_INDEX--;
+        
+            // If sentence has been deleted then start to display the next sentence
+            if(text === '') {
+                clearInterval(_INTERVAL_VAL);
+        
+                // If last sentence then display the first one, else move to the next
+                if(_PART == (_CONTENT.length - 1))
+                    _PART = 0;
+                else
+                    _PART++;
+                _PART_INDEX = 0;
+        
+                // Start to display the next sentence after some time
+                setTimeout(function() {
+                    _INTERVAL_VAL = setInterval(Type, 150);
+                }, 200);
+            }
+        }
+        
+        // Start the typing effect on load
+        _INTERVAL_VAL = setInterval(Type, 150);
+        
+    </script>
 </body>
 </html>
